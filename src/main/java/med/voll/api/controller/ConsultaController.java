@@ -17,8 +17,8 @@ public class ConsultaController {
 
     @PostMapping
     public ResponseEntity<DadosDetalhamentoConsulta> agendar(@RequestBody @Valid DadosAgendamentoConsulta dados) throws Exception {
-        consultaService.agendar(dados);
-        return ResponseEntity.ok(new DadosDetalhamentoConsulta(null, null, null, null));
+        var dto = consultaService.agendar(dados);
+        return ResponseEntity.ok(dto);
     }
     @DeleteMapping
     public  ResponseEntity<DadosCancelamentoConsulta> cancelar(@RequestBody @Valid DadosCancelamentoConsulta dados){
